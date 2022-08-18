@@ -1,0 +1,63 @@
+public with sharing class SearchCourses_CC {
+
+    /**
+     *  This controller is used by the SearchCourses page.
+     *  Users will select courses using the checkboxes and then click
+     *  to see the upcoming course deliveries for those courses.
+     */
+
+    // Represents the main course list
+    public List<CourseWrapper> courseList {
+        get {
+            if (courseList == null) {
+                /** TODO #2: TODO #1 is located below (which should be done first). Complete the code for
+                 *          the courseList get property. Inside the If statement
+                 *           -- Initialize the courseList property as a List of CourseWrapper objects.
+                 *           -- Create a for loop with an iterator of type Course__c named course that iterates
+                 *              over the returned value of a SOQL query that:
+                 *              a.) Selects the Name, Certification__r.Name, Duration__c, Status__c fields
+				 *              b.) In a sub-query Select the child Course Delivery records where the status is not Cancelled
+                 *              c.) From the Course sObject
+                 *           -- Within the for loop, add to the courseList property a new instance of CourseWrapper class which takes
+                 *              the iterator named course as input.
+                 */
+
+            }
+            // TODO #3: return the courseList property
+            
+        }
+        set;
+    }
+
+
+    // Action that is triggered from the "See Upcoming Course Deliveries" button
+    public PageReference listDeliveries() {
+
+        // Loop through all selected courses and print the name to the debug log
+        for (CourseWrapper cw : courseList) {
+            if (cw.checked) {
+                System.debug('Course Selected: ' + cw.course.Name);
+            }
+        }
+
+        return null;
+
+    }
+
+
+    /** TODO #1: Declare a wrapper class named CourseWrapper. Within the class:
+     *             -- Declare a property whose type is Course__c named course
+     *             -- Declare a property whose type is a Boolean named checked
+	 *             -- Declare a property whose type is an Integer named count
+     *                	all should use default getter and setter methods.
+     *             -- Declare a public constructor named CourseWrapper that
+     *					includes an input parameter whose type is Course__c
+     *					named c. Within the constructor, assign the course
+     *					property to the value of the input parameter c.
+     *                  Assign the property checked the value of false.
+	 *                  Assign the property count to the number of Course Delivery records related to the Course
+	 *                     c.Course_Deliveries__r.size()
+     */
+
+
+}

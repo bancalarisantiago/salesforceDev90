@@ -1,0 +1,34 @@
+﻿//--------------------------------------------------------------------------------------------
+//TASK 1: Modify the query by manually adding a WHERE clause that specifies that only closed Cases should be retrieved
+//  HINT: Review the WHERE clause operators in your Student Guide
+//--------------------------------------------------------------------------------------------
+SELECT Id, Subject, Status, IsClosed 
+    FROM Case
+    WHERE IsClosed = TRUE
+    
+//--------------------------------------------------------------------------------------------
+//TASK 2: Modify the query so it finds Cases that have no specified type.
+//  HINT: Type is a Nullable field, so a Case without a Type will have a NULL Type.
+//--------------------------------------------------------------------------------------------
+SELECT Id, Subject, Type
+    FROM Case
+    WHERE type = NULL
+
+//--------------------------------------------------------------------------------------------
+//TASK 3: Modify the following query so it finds Cases that have a Priority of “High” 
+//        and Product Category of “Printers”
+//  HINT: Remember a WHERE clause supports multiple filter criteria using the logical operators: AND, OR.
+//--------------------------------------------------------------------------------------------
+SELECT Id, Subject, Priority, Product_Category__c
+    FROM Case
+    WHERE Priority = 'High'
+        AND Product_Category__c = 'Printers'
+
+//--------------------------------------------------------------------------------------------
+//  TASK 4: Modify the following query so it finds Cases that have the word “printer” included somewhere in the Subject. 
+//  The word “printer” can appear at the beginning, middle, or end of the Case Subject. 
+//  HINT: Remember a WHERE clause supports the LIKE operator and wildcards when searching text values.
+//--------------------------------------------------------------------------------------------
+SELECT Id, Subject
+    FROM Case
+    WHERE Subject LIKE '%printer%'

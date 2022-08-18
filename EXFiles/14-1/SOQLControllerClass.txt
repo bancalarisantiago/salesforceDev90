@@ -1,0 +1,23 @@
+public class SOQLController {
+
+    // The User's input
+    public String name { get; set; }
+
+    public List<Certification_Held__c> queryResult { get; set; }
+
+    public void query() {
+
+        // trim whitespace from search term
+        name = name.trim();
+
+        // Example of unsafe dynamic soql with string concatenation.
+        // Because the filter criteria is passed as-is from the web form,
+        // this exposes a SOQL Injection vulnerability.
+        String qryString =
+            ' SELECT Name, Certified_Professional__r.Name, Certification__r.Name, Certification__r.Number_of_Certified_Professionals__c ' +
+            ' FROM Certification_Held__c ' +
+            ' WHERE Name =\'' + name + '\'';
+
+        queryResult = Database.query( qryString );
+    }
+}

@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" 
+                controller="TrialExpirationController">
+
+    <aura:attribute name="daysLeft" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <lightning:card footer="I am an Aura Component!" title="{!v.daysLeft}" iconName="custom:custom25" />
+    
+</aura:component>

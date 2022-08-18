@@ -1,0 +1,13 @@
+<template>
+
+    <template if:true={daysLeftString}>
+        <lightning-card title={daysLeftString} icon-name="custom:custom25">
+            <div slot="footer">I am a Lightning Web Component!</div>
+        </lightning-card>
+    </template>
+
+    <template if:true={errors}>
+        <lightning-card title={errors.body.message} icon-name="utility:error"></lightning-card>
+    </template>
+    
+</template>

@@ -1,0 +1,15 @@
+{
+  "name": "DEX450",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "2.1.2",
+    "prettier-plugin-apex": "1.7.0"
+  }
+}

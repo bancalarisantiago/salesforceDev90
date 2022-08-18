@@ -1,0 +1,32 @@
+//TODO #1: Annotate this class as a test class
+
+private class CourseDeliveryTriggerHandler_Test {
+
+    //TODO #2: Annotate this method as a testSetup method.
+    //  NOTE: This testSetup method will be used to
+    //  load "setup" objects, such as the Holiday object.
+
+    private static void testSetupObjectDataFactory() {
+
+        //TODO #3: Use the loadData method of the class Test to
+        //  load the data from the static resource 'Test_Holidays'
+        //  into the Holiday sObject.
+
+        System.debug([SELECT Id, ActivityDate, Name FROM Holiday]);
+    }
+
+    //TODO #4: Annotate this method as an isTest method.
+    //  NOTE: This method will be used to load non-Setup objects.
+
+    private static void testDataFactory() {
+        // TODO #5: Declare a variable of type Course__c named testCourse
+        //   and initialize it to the a newly constructed course sObject
+        //   whose name field is set to 'Test Course 1'
+
+
+        // TODO #6: Insert the course you just created into the 
+        //   Salesforce database.
+
+        System.debug([SELECT Id, Name from Course__c]);
+    }
+}

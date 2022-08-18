@@ -1,0 +1,22 @@
+<apex:page controller="SearchCourses_CC" tabStyle="Course__c" lightningStylesheets="true">
+       <apex:form >
+        <apex:pageBlock title="Course Search">
+            <apex:pageMessages />
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!listDeliveries}" value="See Upcoming Course Deliveries"  />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable var="c" value="{!courseList}" >
+                <apex:column width="25px" headerValue="Select">
+                    <apex:inputCheckbox value="{!c.checked}" />
+                </apex:column>
+                <apex:column value="{!c.course.Name}" />
+                <apex:column value="{!c.course.Certification__r.Name}" />
+                <apex:column value="{!c.course.Duration__c}" />
+                <apex:column value="{!c.course.Status__c}" />
+                    <apex:column width="25px" headerValue="Deliveries">
+                        {!c.count}
+                    </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

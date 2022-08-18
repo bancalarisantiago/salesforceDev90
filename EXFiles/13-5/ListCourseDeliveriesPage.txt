@@ -1,0 +1,18 @@
+<apex:page controller="SearchCourses_CC" lightningStylesheets="true">
+    <apex:form>
+        <apex:pageBlock title="Upcoming Course Deliveries">
+            <apex:pageMessages />
+            <apex:pageBlockButtons>
+                <apex:commandButton action="{!newSearch}" value="New Search" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockTable var="delivery" value="{!deliveries}" >
+                <apex:column value="{!delivery.Course__r.Name}" />
+                <apex:column value="{!delivery.Name}" />
+                <apex:column headerValue="Instructor Name" value="{!delivery.Instructor__r.Name}" />
+                <apex:column value="{!delivery.Location__c}" />
+                <apex:column value="{!delivery.Start_Date__c}" />
+                <apex:column value="{!delivery.Status__c}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page standardController="Account" extensions="AccountDisplayCertsHeld_CX" lightningStylesheets="true">
+    <apex:pageBlock >
+        <apex:pageBlockTable var="cert" value="{!results}" >
+            <apex:column value="{!cert.Name}" />
+            <apex:column value="{!cert.Certified_Professional__r.Name}" />
+            <apex:column value="{!cert.Date_Achieved__c}" />
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

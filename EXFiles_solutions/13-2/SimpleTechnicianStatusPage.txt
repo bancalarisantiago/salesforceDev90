@@ -1,0 +1,56 @@
+<apex:page standardController="Contact" lightningStylesheets="true" showHeader="true">
+    <apex:form id="theForm">
+        <apex:pageBlock title="Technician Status">
+            <!-- Technician Info  -->
+            <apex:pageBlockButtons >
+                <!-- TODO 1#: Create an apex:commandButton component with an attribute named value that has
+                              the value "Edit Technician Record". Also add an attribute named action that
+                              invokes the edit action of the standard controller. Lastly, add an attribute
+                              named rerender that has the value "theForm" per the apex:form tag id attribute value above.
+
+                              Note, the use of the rerender attribute here is technically just a workaround
+                              for known issue https://success.salesforce.com/issues_view?id=a1p3A0000001BZLQA2 -->
+                <apex:commandButton value="Edit Technician Record" action="{!edit}" rerender="theForm"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <!-- TODO #2: Create an apex:outputField component with an attribute named value that is
+                              dynamically bound to the Name field for the Contact sObject. Also add an
+                              attribute named label and assign it the value "Technician Name". -->
+                <apex:outputField value="{!Contact.Name}" label="Technician Name"/>
+                <!-- TODO #3: Create an apex:outputField component with an attribute named value that is
+                              dynamically bound to the Email field for the Contact sObject. -->
+                <apex:outputField value="{!Contact.Email}"/>
+                <!-- TODO #4: Create an apex:outputField component with an attribute named value that is
+                              dynamically bound to the Phone field for the Contact sObject. -->
+                <apex:outputField value="{!Contact.Phone}"/>
+                <!-- TODO #5: Create an apex:outputField component with an attribute named value that is
+                              dynamically bound to the Name field for the parent Account associated with
+                              the Contact sObject. -->
+                <apex:outputField value="{!Contact.Account.Name}"/>
+            </apex:pageBlockSection>
+
+            <p/>
+
+            <!-- Course Listing  -->
+
+            <apex:pageBlockTable id="courseList" value="{!Contact.Course_Attendees__r}" var="ca" captionStyle="text-align:left;font-weight:bold">
+               <apex:facet name="caption">Course Listing</apex:facet>
+               <apex:column headerValue="Date">
+                    <!-- TODO #6: Create an apex:outputLink component with an attribute named value that
+                                  uses the URLFOR function and dynamically bind to the View action for the
+                                  Course_Attendee__c sObject, based on the Course_Attendee__c Id field.
+                                  Nested within the apex:outputLink component tag, create an apex:outputField
+                                  component with an attribute named value that uses expression syntax to reference the
+                                  Start_Date__c field for the Course_Delivery__r related sObject.  -->
+                    <apex:outputLink value="{!URLFOR($Action.Course_Attendee__c.View, ca.id)}">
+                        <apex:outputField value="{!ca.Course_Delivery__r.Start_Date__c}"/>
+                    </apex:outputLink>
+                </apex:column>
+                <apex:column value="{!ca.Course_Delivery__r.Instructor__r.Name}" />
+                <apex:column value="{!ca.Course_Delivery__r.Course__r.Certification__r.Name}"/>
+                <apex:column value="{!ca.Course_Delivery__r.Course__r.Certification__r.Certification_Description__c}" />
+             </apex:pageBlockTable>
+
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
