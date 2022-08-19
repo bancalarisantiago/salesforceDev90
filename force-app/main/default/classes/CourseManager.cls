@@ -24,17 +24,19 @@ public static Set<Course__c> findDuplicates(List<Course__c> oldCourseList,
      *             and pass in the value of the newCourse variable
      */
 
-     for(Course__c newCourse : newCourseList) {
+        for(Course__c newCourse : newCourseList) {
 
-            if(oldCourseList.contains(newCourse)) {
-                courseDuplicatesSet.add(newCourse);
-            }
-           
-     }
+                if(oldCourseList.contains(newCourse)) {
+                    courseDuplicatesSet.add(newCourse);
+                }
+            
+        }
 
 
     /** TODO #3: Return the courseDuplicatesSet variable
      */
                 return courseDuplicatesSet;
-}
+
+                
+    }
 }
