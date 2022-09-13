@@ -7,3 +7,10 @@
 
 //TODO #2  Use the insert statement to insert newCourse into the database.
 
+
+Course__c newCourse = new Course__c(Name = '[104] Introduction to Programming',
+                                    Course_Description__c = 'Learn the basics of programming with OOP',
+                                    Status__c = 'Active', 
+                                    Duration__c = 5);
+//TODO #2  Use the insert statement to insert newCourse into the database.
+insert newCourse;

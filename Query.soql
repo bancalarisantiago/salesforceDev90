@@ -1,0 +1,2 @@
+SELECT Id, Subject, Priority, Product_Category__c
+FROM Case
