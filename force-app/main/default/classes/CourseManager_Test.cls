@@ -1,4 +1,3 @@
-
 @isTest
 private class CourseManager_Test {
 
